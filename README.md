@@ -3,5 +3,9 @@ DayOne Stats
 
 program analyzing and visualizing usage of the DayOne application
 
-At the moment a path to an unzipped dayone backup file (full of .doentry files) has to be specified in main.py. The program will then list the number of words per day one entry, like so:
-![demo image](https://github.com/TPei/DayOne_Stats/blob/master/screen1.png)
+Searches the default dayone iCloud drive directory, if no entries are found there, asks user to pick a folder.
+
+Modes:
+![words per entry](https://github.com/TPei/DayOne_Stats/blob/master/res/words_per_entry.png)
+![average words per entry per weekday](https://github.com/TPei/DayOne_Stats/blob/master/res/avg_words_per_entry_weekday.png)
+![words per weekday](https://github.com/TPei/DayOne_Stats/blob/master/res/words_per_weekday.png)

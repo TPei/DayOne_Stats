@@ -5,7 +5,7 @@ import pylab
 from dayone_directory import *
 
 def words_per_entry():
-    
+
     file_path = get_file_path()
     entry_files = os.listdir(file_path)
 
