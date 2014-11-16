@@ -84,4 +84,4 @@ def average_words_per_weekday_with_empty_days():
     plt.show()
 
 if __name__ == '__main__':
-    average_words_per_weekday()
+    average_words_per_weekday_with_empty_days()
