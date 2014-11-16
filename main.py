@@ -1,11 +1,10 @@
+from src import entries_per_weekday, total_words_per_weekday, words_per_entry, average_words_per_weekday
+
 __author__ = 'TPei'
-from average_words_per_weekday import average_words_per_weekday
-from entries_per_weekday import entries_per_weekday
-from total_words_per_weekday import total_words_per_weekday
-from words_per_entry import words_per_entry
-from words_per_entrydate import words_per_entrydate
+
 
 def handle_input():
+    print ""
     print "Welcome to your personal DayOne Stats Analyzer"
     print "-----------------------------"
     print "The following Analyzation options are currently supported:"
@@ -18,22 +17,30 @@ def handle_input():
     print ""
     choice = input(">>> ")
 
+    execute_choice(choice)
+
+
+def execute_choice(choice):
     print ""
     if choice == 0:
         print "words per entry chosen"
-        words_per_entry()
+        words_per_entry.words_per_entry()
     elif choice == 1:
         print "entries per weekday chosen"
-        entries_per_weekday()
+        entries_per_weekday.entries_per_weekday()
     elif choice == 2:
         print "total words per weekday chosen"
-        total_words_per_weekday()
+        total_words_per_weekday.total_words_per_weekday()
     elif choice == 3:
         print "average words per entry per weekdaychosen"
-        average_words_per_weekday()
+        average_words_per_weekday.average_words_per_weekday()
     else:
         print "Unfortunately, this is not a valid option"
         handle_input()
 
 if __name__ == '__main__':
-    handle_input()
+    import sys
+    if len(sys.argv) == 2:
+        execute_choice(int(sys.argv[1]))
+    else:
+        handle_input()

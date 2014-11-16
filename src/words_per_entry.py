@@ -1,8 +1,10 @@
 __author__ = 'TPei'
-import os
 import xml.etree.ElementTree as ET
+
 import pylab
-from dayone_directory import *
+
+from src.dayone_directory import *
+
 
 def words_per_entry():
 

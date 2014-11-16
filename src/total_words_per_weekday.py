@@ -1,12 +1,12 @@
+from __future__ import division
 __author__ = 'TPei'
-import os
 import xml.etree.ElementTree as ET
 import numpy as np
 import matplotlib.pyplot as plt
-from dayone_directory import *
-from dayone_date_parser import *
+from src.dayone_directory import *
+from src.dayone_date_parser import *
 
-def entries_per_weekday():
+def total_words_per_weekday():
 
     file_path = get_file_path()
     entry_files = os.listdir(file_path)
@@ -26,7 +26,9 @@ def entries_per_weekday():
         entry_days.append(0)
 
     for entry in dayone_entries:
-        entry_days[get_weekday(get_date(entry[0]))] += 1
+        words = entry[1].split()
+
+        entry_days[get_weekday(get_date(entry[0]))] += len(words)
 
 
     fig = plt.figure()
@@ -42,9 +44,9 @@ def entries_per_weekday():
 
     # axes and labels
     ax.set_xlim(-width, len(ind)+width)
-    ax.set_ylim(0, max(entry_days) + 10)
-    ax.set_ylabel('Number of Entries')
-    ax.set_title('Total Number of Entries per Weekday')
+    ax.set_ylim(0, max(entry_days) + max(entry_days) / 10)
+    ax.set_ylabel('Wordcount')
+    ax.set_title('Total Number of Words per Weekday')
     xTickMarks = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     ax.set_xticks(ind+width)
     xtickNames = ax.set_xticklabels(xTickMarks)
@@ -54,4 +56,4 @@ def entries_per_weekday():
     plt.show()
 
 if __name__ == '__main__':
-    entries_per_weekday()
+    total_words_per_weekday()
