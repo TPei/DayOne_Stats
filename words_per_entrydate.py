@@ -2,6 +2,7 @@ __author__ = 'TPei'
 import os
 import xml.etree.ElementTree as ET
 import pylab
+from dayone_directory import *
 
 '''
 first step, support for unzipped DayOne backup file folder (.doentry files)
@@ -12,7 +13,7 @@ this is the path to an unzipped dayone backup directory
 which contains a lot of .doentry files
 '''
 
-file_path = "/Users/thomas/Library/Containers/com.dayoneapp.dayone/Data/Library/Application Support/Backup/Journal_dayone/entries/"
+file_path = get_file_path()
 entry_files = os.listdir(file_path)
 
 dayone_entries = []
@@ -33,7 +34,7 @@ for entry in dayone_entries:
 
 pylab.figure(1)
 pylab.title("Words per Day One entry")
-pylab.xlabel("number of entry")
+pylab.xlabel("number of entries")
 pylab.ylabel("number of words")
 pylab.plot(y_coords)
 pylab.show()
