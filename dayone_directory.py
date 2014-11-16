@@ -3,6 +3,7 @@ import getpass
 import os
 
 
+
 def get_file_path():
     """
     find default dayone entries folder, which is in the users' iCloud drive
@@ -17,6 +18,16 @@ def get_file_path():
     for folder in folders:
         if "dayoneapp" in folder:
             return file_path + folder + "/Documents/Journal_dayone/entries/"
+
+    # no dayoneapp folder was found, so we'll use a folder chooser dialog
+    from Tkinter import Tk
+    import tkFileDialog
+    Tk().withdraw() # stops random empty tk root window from appearing
+
+    # open folder chooser dialog
+    filename = tkFileDialog.askdirectory()
+    return filename
+
 
 if __name__ == '__main__':
     print get_file_path()

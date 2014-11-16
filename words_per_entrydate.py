@@ -26,15 +26,17 @@ for file in entry_files:
     dict_tag = root[0]
     dayone_entries.append((dict_tag.find("date").text, dict_tag.find("string").text))
 
-
-y_coords = []
+entry_dates = []
+entry_word_count = []
 for entry in dayone_entries:
+    entry_dates.append(entry[0])
+
     words = entry[1].split()
-    y_coords.append(len(words))
+    entry_word_count.append(len(words))
 
 pylab.figure(1)
 pylab.title("Words per Day One entry")
 pylab.xlabel("number of entries")
 pylab.ylabel("number of words")
-pylab.plot(y_coords)
+pylab.plot(entry_word_count)
 pylab.show()
