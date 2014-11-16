@@ -17,9 +17,14 @@ def get_file_path():
 
     for folder in folders:
         if "dayoneapp" in folder:
-            return file_path + folder + "/Documents/Journal_dayone/entries/"
+            file_path += folder + "/Documents/Journal_dayone/entries/"
 
-    # no dayoneapp folder was found, so we'll use a folder chooser dialog
+    #if
+    if os.path.isdir(file_path) and os.listdir(file_path):
+        return file_path
+
+    # no dayoneapp folder with the necessary sub-folders was found,
+    # so we'll use a folder chooser dialog
     from Tkinter import Tk
     import tkFileDialog
     Tk().withdraw() # stops random empty tk root window from appearing
