@@ -29,6 +29,8 @@ def words_per_entrydate():
         words = entry[1].split()
         entry_word_count.append(len(words))
 
+    dayone_entries = sorted(dayone_entries)
+
     print entry_dates[0]
     import time
     print time.time()

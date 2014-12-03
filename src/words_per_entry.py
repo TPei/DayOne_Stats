@@ -21,6 +21,7 @@ def words_per_entry():
         dict_tag = root[0]
         dayone_entries.append((dict_tag.find("date").text, dict_tag.find("string").text))
 
+    dayone_entries = sorted(dayone_entries)
 
     y_coords = []
     for entry in dayone_entries:
